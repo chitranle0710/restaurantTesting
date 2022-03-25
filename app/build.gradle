@@ -72,7 +72,6 @@ dependencies {
 
     /* Google Material */
     implementation 'com.google.android.material:material:1.5.0'
-    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
@@ -80,5 +79,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
 
 }

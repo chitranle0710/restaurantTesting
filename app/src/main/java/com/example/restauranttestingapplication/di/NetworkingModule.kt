@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkingModule {
+class NetworkingModule {
     @Provides
     fun provideBaseUrl() = Constant.BASE_URL
 
@@ -26,7 +26,6 @@ object NetworkingModule {
         .baseUrl(BASE_URL)
         .client(okHttpClient)
         .build()
-
 
     @Singleton
     @Provides

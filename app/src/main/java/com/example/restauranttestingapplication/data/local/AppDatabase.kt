@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import com.example.restauranttestingapplication.model.DaysConverter
 import com.example.restauranttestingapplication.model.Restaurants
 
-@Database(entities = [Restaurants::class], version = 1, exportSchema = false)
+@Database(entities = [Restaurants::class], version = 2, exportSchema = false)
 @TypeConverters(DaysConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 

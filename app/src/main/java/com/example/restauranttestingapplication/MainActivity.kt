@@ -1,7 +1,6 @@
 package com.example.restauranttestingapplication
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.example.restauranttestingapplication.base.BaseActivity
@@ -15,7 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: RestaurantViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +21,6 @@ class MainActivity : BaseActivity() {
         setContentView(binding.root)
 
         initNavigation()
-        if (SharePrefs.getPutData(this) == false) {
-            SharePrefs.savePutData(this, true)
-            hardCodeInsert()
-        }
     }
 
     private fun initNavigation() {
@@ -36,37 +30,5 @@ class MainActivity : BaseActivity() {
         navController.navInflater.inflate(R.navigation.main_navigation)
     }
 
-    private fun registerObserver() {
-        viewModel.restaurantMutableLiveData.observe(this) {
-            Log.d("MainActivity", "$it")
-        }
-    }
 
-    private fun hardCodeInsert() {
-        viewModel.insertData(
-            Restaurants(
-                1, "desc 1", true, arrayListOf(
-                    Days(
-                        1, "Monday", 1646049796000, 1646078596000
-                    ),
-                    Days(
-                        2, "Tuesday", 1646049796000, 1646078596000
-                    ), Days(
-                        3, "Wednesday", 1646049796000, 1646078596000
-                    ), Days(
-                        4, "Thursday", 1646049796000, 1646078596000
-                    ), Days(
-                        5, "Friday", 1646049796000, 1646078596000
-                    ),
-                    Days(
-                        6, "Saturday", 1646049796000, 1646078596000
-                    ),
-                    Days(
-                        7, "Sunday", 1646049796000, 1646078596000
-                    )
-                )
-            )
-        )
-
-    }
 }

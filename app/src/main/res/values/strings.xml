@@ -2,4 +2,11 @@
     <string name="app_name">RestaurantTestingApplication</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open">Opening</string>
+    <string name="close">Close</string>
+    <string name="please_adding_name_store">Please adding name store</string>
+    <string name="store_s_name">Store\'s name:</string>
+    <string name="clear_data">Clear Data</string>
+    <string name="add_data">Add Data</string>
+    <string name="no_available_data">No Available Data</string>
 </resources>

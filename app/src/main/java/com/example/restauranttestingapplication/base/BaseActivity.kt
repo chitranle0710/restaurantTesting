@@ -14,12 +14,12 @@ abstract class BaseActivity : AppCompatActivity() {
 
     }
 
-    fun progressBarView() {
+    private fun progressBarView() {
         if (dialogLoading.isShowing) return
         dialogLoading.showDialog()
     }
 
-    fun dismissProgressBar() {
+    private fun dismissProgressBar() {
         if (dialogLoading.isShowing) dialogLoading.closeDialog()
     }
 

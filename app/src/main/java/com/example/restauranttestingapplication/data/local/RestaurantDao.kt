@@ -19,5 +19,5 @@ interface RestaurantDao {
     fun deleteAll()
 
     @Query("SELECT * FROM restaurant_table")
-    fun getAllRestaurants(): List<Restaurants>
+    fun getAllRestaurants(): MutableList<Restaurants>
 }

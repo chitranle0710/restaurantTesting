@@ -5,5 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface RestaurantRepo {
     fun insertRestaurant(restaurants: Restaurants)
-    fun getDataRestaurants(): Flow<List<Restaurants>>
+    fun getDataRestaurants(): Flow<MutableList<Restaurants>>
+    fun clearData()
 }

@@ -12,7 +12,9 @@ class RestaurantRepoImpl @Inject constructor(private val restaurantDao: Restaura
     RestaurantRepo {
     override fun insertRestaurant(restaurants: Restaurants) = restaurantDao.insert(restaurants)
 
-    override fun getDataRestaurants(): Flow<List<Restaurants>> = flow {
+    override fun getDataRestaurants(): Flow<MutableList<Restaurants>> = flow {
         emit(restaurantDao.getAllRestaurants())
     }
+
+    override fun clearData() = restaurantDao.deleteAll()
 }

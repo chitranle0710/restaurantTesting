@@ -7,7 +7,7 @@ import androidx.room.TypeConverters
 
 @Entity(tableName = "restaurant_table")
 data class Restaurants(
-    @PrimaryKey(autoGenerate = false) val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int? = null,
     val name: String,
     val operation: Boolean,
     @TypeConverters(DaysConverter::class)

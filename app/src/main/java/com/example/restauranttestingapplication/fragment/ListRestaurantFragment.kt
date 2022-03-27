@@ -1,6 +1,5 @@
 package com.example.restauranttestingapplication.fragment
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,14 +15,14 @@ import com.example.restauranttestingapplication.utils.beVisible
 import com.example.restauranttestingapplication.viewmodel.RestaurantViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class ListRestaurantFragment : BaseFragment() {
     private var binding: FragmentListRestaurantBinding? = null
     private val viewModel: RestaurantViewModel by viewModels()
+    private var isOpen: Boolean = true
 
     private val adapter by lazy {
-        RestaurantAdapter(mutableListOf())
+        RestaurantAdapter()
     }
 
     override fun onCreateView(
@@ -35,8 +34,10 @@ class ListRestaurantFragment : BaseFragment() {
 
         viewModel.getData()
 
-        initRecyclerView()
         registerObserver()
+        initRecyclerView()
+
+        onRadioButtonClicked()
         onClick()
 
         return binding!!.root
@@ -49,31 +50,39 @@ class ListRestaurantFragment : BaseFragment() {
         binding?.btnAddData?.setOnClickListener {
             val nameStore = binding?.etStore?.text.toString()
             if (nameStore.isEmpty()) {
+                binding?.tvError.beVisible()
                 return@setOnClickListener
             }
+            binding?.etStore?.setText("")
+            binding?.tvError.beGone()
             insertData(nameStore)
         }
+    }
+
+    private fun onRadioButtonClicked() {
+        binding?.radioOpen?.isChecked = true
+        isOpen = binding?.radioOpen?.isChecked == true
     }
 
     private fun registerObserver() {
         viewModel.loadingData.observe(requireActivity()) {
             progressBar(it)
         }
-        viewModel.restaurantMutableLiveData.observe(requireActivity()) {
-            if (it.isNullOrEmpty()) {
+        viewModel.restaurantMutableLiveData.observe(requireActivity()) { listRes ->
+            if (listRes.isNullOrEmpty()) {
                 binding?.rvRes?.beGone()
                 binding?.layoutNoData?.root?.beVisible()
             } else {
-                adapter.updateData(it)
                 binding?.layoutNoData?.root?.beGone()
+                adapter.updateData(listRes.toMutableList())
             }
         }
     }
 
     private fun initRecyclerView() {
+        binding?.rvRes?.setHasFixedSize(true)
         binding?.rvRes?.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding?.rvRes?.setHasFixedSize(true)
         binding?.rvRes?.adapter = adapter
     }
 

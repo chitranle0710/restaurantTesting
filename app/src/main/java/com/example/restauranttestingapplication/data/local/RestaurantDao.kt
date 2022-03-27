@@ -6,8 +6,8 @@ import com.example.restauranttestingapplication.model.Restaurants
 @Dao
 interface RestaurantDao {
 
-    @Insert
-    fun insert(restaurants: Restaurants)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(vararg restaurants: Restaurants)
 
     @Update
     fun update(restaurants: Restaurants)
@@ -19,5 +19,5 @@ interface RestaurantDao {
     fun deleteAll()
 
     @Query("SELECT * FROM restaurant_table")
-    fun getAllRestaurants(): MutableList<Restaurants>
+    fun getAllRestaurants(): List<Restaurants>
 }

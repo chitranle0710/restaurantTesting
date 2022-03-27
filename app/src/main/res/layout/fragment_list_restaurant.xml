@@ -32,6 +32,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRemind" />
 
+    <RadioGroup
+        android:id="@+id/rdOperate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/tvError">
+
+        <RadioButton
+            android:id="@+id/radio_open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FEC8D8"
+            android:text="@string/open" />
+
+        <RadioButton
+            android:id="@+id/radio_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FEC8D8"
+            android:text="@string/close" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:text="@string/name_s_store_is_required"
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etStore" />
+
     <Button
         android:id="@+id/btnAddData"
         android:layout_width="wrap_content"
@@ -41,7 +76,7 @@
         android:backgroundTint="#B4CBF0"
         android:text="@string/add_data"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etStore" />
+        app:layout_constraintTop_toBottomOf="@+id/rdOperate" />
 
     <Button
         android:id="@+id/btnClearData"
@@ -52,7 +87,7 @@
         android:backgroundTint="#B4CBF0"
         android:text="@string/clear_data"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etStore" />
+        app:layout_constraintTop_toBottomOf="@+id/rdOperate" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRes"

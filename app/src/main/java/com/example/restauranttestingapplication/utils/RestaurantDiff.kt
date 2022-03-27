@@ -20,7 +20,7 @@ class RestaurantDiff(
      *
      */
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
-        oldList[oldItemPosition].id === newList[newItemPosition].id
+        oldList[oldItemPosition].id === newList[newItemPosition].id && oldList[oldItemPosition].name === newList[newItemPosition].name && oldList[oldItemPosition].schedule === newList[newItemPosition].schedule
 
     /**
      *  Called by the DiffUtil when it wants to check whether two items have the same data.
@@ -29,5 +29,9 @@ class RestaurantDiff(
      */
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return oldList[oldItemPosition] === newList[newItemPosition]
+    }
+
+    override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
+        return super.getChangePayload(oldItemPosition, newItemPosition)
     }
 }

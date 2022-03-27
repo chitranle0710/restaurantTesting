@@ -3,6 +3,7 @@ package com.example.restauranttestingapplication.viewmodel
 import androidx.lifecycle.*
 import com.example.restauranttestingapplication.model.Restaurants
 import com.example.restauranttestingapplication.repository.RestaurantRepo
+import com.example.restauranttestingapplication.utils.AppUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -12,15 +13,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RestaurantViewModel @Inject constructor(private val repo: RestaurantRepo) : ViewModel() {
-    val restaurantMutableLiveData = MutableLiveData<MutableList<Restaurants>>()
+    val restaurantMutableLiveData = MutableLiveData<List<Restaurants>>()
     val loadingData = MutableLiveData<Boolean>()
+
     fun insertData(restaurants: Restaurants) {
         loadingData.postValue(false)
         CoroutineScope(Dispatchers.IO).launch {
             repo.insertRestaurant(restaurants)
-            getData()
+            loadingData.postValue(true)
         }
-
+        getData()
     }
 
     fun getData() {

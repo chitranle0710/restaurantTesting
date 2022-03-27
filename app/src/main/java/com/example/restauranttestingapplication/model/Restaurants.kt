@@ -3,6 +3,12 @@ package com.example.restauranttestingapplication.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import com.google.gson.Gson
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.io.ObjectInputStream
+import java.io.ObjectOutputStream
+import java.io.Serializable
 
 
 @Entity(tableName = "restaurant_table")
@@ -20,3 +26,4 @@ data class Days(
     val timeOpen: Long,
     val timeClose: Long
 )
+

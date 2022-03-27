@@ -1,6 +1,7 @@
 package com.example.restauranttestingapplication.fragment
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,20 +13,20 @@ import com.example.restauranttestingapplication.databinding.ItemRestaurantBindin
 import com.example.restauranttestingapplication.model.Restaurants
 import com.example.restauranttestingapplication.utils.RestaurantDiff
 
-class RestaurantAdapter(private var listRes: MutableList<Restaurants>) :
+class RestaurantAdapter :
     RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
 
+    private var listRes: MutableList<Restaurants> = mutableListOf()
     val onItemClick: (restaurant: Restaurants) -> Unit = {}
     private val FADE_DURATION = 1000 //FADE_DURATION in milliseconds
 
-
     fun updateData(data: MutableList<Restaurants>) {
-        if (this.listRes == data) {
-            return
-        }
         val diffCallback = RestaurantDiff(listRes, data)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         diffResult.dispatchUpdatesTo(this)
+        if (this.listRes == data) {
+            return
+        }
         listRes.clear()
         listRes.addAll(data)
     }

@@ -16,17 +16,19 @@ import com.example.restauranttestingapplication.utils.RestaurantDiff
 class RestaurantAdapter :
     RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
 
-    private var listRes: MutableList<Restaurants> = mutableListOf()
+    private var listRes: ArrayList<Restaurants> = arrayListOf()
+
     val onItemClick: (restaurant: Restaurants) -> Unit = {}
     private val FADE_DURATION = 1000 //FADE_DURATION in milliseconds
 
-    fun updateData(data: MutableList<Restaurants>) {
-        val diffCallback = RestaurantDiff(listRes, data)
-        val diffResult = DiffUtil.calculateDiff(diffCallback)
-        diffResult.dispatchUpdatesTo(this)
+    fun updateData(data: ArrayList<Restaurants>?) {
+        data ?: return
         if (this.listRes == data) {
             return
         }
+        val diffCallback = RestaurantDiff(listRes, data)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        diffResult.dispatchUpdatesTo(this)
         listRes.clear()
         listRes.addAll(data)
     }
@@ -42,6 +44,7 @@ class RestaurantAdapter :
 
     override fun onBindViewHolder(holder: RestaurantAdapter.RestaurantViewHolder, position: Int) {
         holder.bind(listRes[position], position)
+        Log.d("Adapter", "$listRes")
         setFadeAnimation(holder.itemView)
     }
 

@@ -1,6 +1,7 @@
 package com.example.restauranttestingapplication.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +13,10 @@ import com.example.restauranttestingapplication.model.Days
 import com.example.restauranttestingapplication.model.Restaurants
 import com.example.restauranttestingapplication.utils.beGone
 import com.example.restauranttestingapplication.utils.beVisible
+import com.example.restauranttestingapplication.utils.toArrayList
 import com.example.restauranttestingapplication.viewmodel.RestaurantViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class ListRestaurantFragment : BaseFragment() {
@@ -70,11 +73,11 @@ class ListRestaurantFragment : BaseFragment() {
         }
         viewModel.restaurantMutableLiveData.observe(requireActivity()) { listRes ->
             if (listRes.isNullOrEmpty()) {
-                binding?.rvRes?.beGone()
+                adapter.updateData(listRes.toArrayList())
                 binding?.layoutNoData?.root?.beVisible()
             } else {
                 binding?.layoutNoData?.root?.beGone()
-                adapter.updateData(listRes.toMutableList())
+                adapter.updateData(listRes.toArrayList())
             }
         }
     }

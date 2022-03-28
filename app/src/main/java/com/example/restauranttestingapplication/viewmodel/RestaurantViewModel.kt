@@ -21,8 +21,9 @@ class RestaurantViewModel @Inject constructor(private val repo: RestaurantRepo) 
         CoroutineScope(Dispatchers.IO).launch {
             repo.insertRestaurant(restaurants)
             loadingData.postValue(true)
+            getData()
         }
-        getData()
+
     }
 
     fun getData() {

@@ -2,8 +2,10 @@ package com.example.restauranttestingapplication.viewmodel
 
 import androidx.lifecycle.*
 import com.example.restauranttestingapplication.model.Restaurants
+import com.example.restauranttestingapplication.model.RestaurantsTime
+import com.example.restauranttestingapplication.repository.GetDataRemoteRepository
 import com.example.restauranttestingapplication.repository.RestaurantRepo
-import com.example.restauranttestingapplication.utils.AppUtils
+import com.example.restauranttestingapplication.utils.ResultWrapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -12,36 +14,25 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RestaurantViewModel @Inject constructor(private val repo: RestaurantRepo) : ViewModel() {
-    val restaurantMutableLiveData = MutableLiveData<List<Restaurants>>()
+class RestaurantViewModel @Inject constructor(
+    private val repo: RestaurantRepo,
+    private val remoteRepository: GetDataRemoteRepository
+) : ViewModel() {
     val loadingData = MutableLiveData<Boolean>()
+    val restaurantTimeMutableLiveData = MutableLiveData<RestaurantsTime>()
 
-    fun insertData(restaurants: Restaurants) {
-        loadingData.postValue(false)
-        CoroutineScope(Dispatchers.IO).launch {
-            repo.insertRestaurant(restaurants)
-            loadingData.postValue(true)
-            getData()
-        }
-
-    }
-
-    fun getData() {
-        CoroutineScope(Dispatchers.IO).launch {
+    fun getDataRemote() {
+        viewModelScope.launch {
             loadingData.postValue(false)
-            repo.getDataRestaurants().collect { data ->
-                restaurantMutableLiveData.postValue(data)
-                loadingData.postValue(true)
+            when (val value = remoteRepository.getDataList()) {
+                is ResultWrapper.Success -> {
+                    restaurantTimeMutableLiveData.postValue(value.data)
+                }
+                else -> {
+                }
             }
-        }
-    }
-
-    fun clearData() {
-        CoroutineScope(Dispatchers.IO).launch {
-            loadingData.postValue(false)
-            repo.clearData()
-            getData()
             loadingData.postValue(true)
         }
     }
+
 }

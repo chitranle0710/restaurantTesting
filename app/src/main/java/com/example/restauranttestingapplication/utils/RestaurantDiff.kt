@@ -1,11 +1,13 @@
 package com.example.restauranttestingapplication.utils
 
 import androidx.recyclerview.widget.DiffUtil
+import com.example.restauranttestingapplication.model.RestaurantData
 import com.example.restauranttestingapplication.model.Restaurants
+import com.example.restauranttestingapplication.model.RestaurantsTime
 
 class RestaurantDiff(
-    private val oldList: MutableList<Restaurants>,
-    private val newList: MutableList<Restaurants>
+    private val oldList: MutableList<RestaurantData>,
+    private val newList: MutableList<RestaurantData>
 ) : DiffUtil.Callback() {
 
     //Returns the size of the old list.
@@ -20,7 +22,7 @@ class RestaurantDiff(
      *
      */
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
-        oldList[oldItemPosition].id === newList[newItemPosition].id && oldList[oldItemPosition].name === newList[newItemPosition].name && oldList[oldItemPosition].schedule === newList[newItemPosition].schedule
+        oldList[oldItemPosition].name === newList[newItemPosition].name
 
     /**
      *  Called by the DiffUtil when it wants to check whether two items have the same data.

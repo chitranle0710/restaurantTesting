@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_10sdp"
+    android:animateLayoutChanges="true">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl05"
+        android:layout_width="@dimen/_1sdp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/tvMonday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:hint="Monday"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/gl05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTuesday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:hint="Tuesday"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/gl05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMonday" />
+
+    <TextView
+        android:id="@+id/tvWednesday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:hint="Wednesday"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/gl05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTuesday" />
+
+    <TextView
+        android:id="@+id/tvThursday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:hint="Thursday"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/gl05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWednesday" />
+
+    <TextView
+        android:id="@+id/tvFriday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:hint="Friday"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/gl05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvThursday" />
+
+    <TextView
+        android:id="@+id/tvSaturday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:hint="Saturday"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/gl05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFriday" />
+
+    <TextView
+        android:id="@+id/tvSunday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:hint="Sunday"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/gl05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSaturday" />
+
+    <TextView
+        android:id="@+id/tvMondayTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl05"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTuesdayTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl05"
+        app:layout_constraintTop_toBottomOf="@+id/tvMondayTime" />
+
+    <TextView
+        android:id="@+id/tvWednesdayTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl05"
+        app:layout_constraintTop_toBottomOf="@+id/tvTuesdayTime" />
+
+    <TextView
+        android:id="@+id/tvThursdayTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl05"
+        app:layout_constraintTop_toBottomOf="@+id/tvWednesdayTime" />
+
+    <TextView
+        android:id="@+id/tvFridayTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl05"
+        app:layout_constraintTop_toBottomOf="@+id/tvThursdayTime" />
+
+    <TextView
+        android:id="@+id/tvSaturdayTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl05"
+        app:layout_constraintTop_toBottomOf="@+id/tvFridayTime" />
+
+    <TextView
+        android:id="@+id/tvSundayTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl05"
+        app:layout_constraintTop_toBottomOf="@+id/tvSaturdayTime" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

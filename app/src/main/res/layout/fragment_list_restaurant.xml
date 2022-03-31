@@ -15,6 +15,7 @@
         android:layout_margin="@dimen/_5sdp"
         android:fontFamily="@font/poppinsregular"
         android:text="@string/please_adding_name_store"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,6 +29,7 @@
         android:hint="@string/store_s_name"
         android:padding="@dimen/_5sdp"
         android:textColor="@color/black"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRemind" />
@@ -38,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/tvError">
 
         <RadioButton
@@ -75,6 +78,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:backgroundTint="#B4CBF0"
         android:text="@string/add_data"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rdOperate" />
 
@@ -86,6 +90,7 @@
         android:layout_marginEnd="@dimen/_20sdp"
         android:backgroundTint="#B4CBF0"
         android:text="@string/clear_data"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rdOperate" />
 

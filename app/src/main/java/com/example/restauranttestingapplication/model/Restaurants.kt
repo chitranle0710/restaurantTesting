@@ -21,7 +21,6 @@ data class Restaurants(
 )
 
 data class Days(
-    val idDay: Int,
     val nameDay: String,
     val timeOpen: Long,
     val timeClose: Long

@@ -1,55 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_5sdp"
+    android:animateLayoutChanges="true"
     android:background="@drawable/bg_store"
+    android:orientation="vertical"
     android:padding="@dimen/_5sdp">
 
-    <ImageView
-        android:id="@+id/ivStore"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_store_shopper_svgrepo_com"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:padding="@dimen/_3sdp"
-        android:weightSum="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivStore"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tvNameStore"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/poppinsregular"
-            android:text="ABC Storasdutasuydfsahjdfsahjgsafdghsafdgassahgdfghasfashgdfghase"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@id/ivStore"
-            app:layout_constraintTop_toBottomOf="@+id/tvState"
+        <ImageView
+            android:id="@+id/ivStore"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_store_shopper_svgrepo_com"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvState"
-            android:layout_width="match_parent"
-
+        <LinearLayout
+            android:id="@+id/llName"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/poppinsregular"
-            android:text="State: Open"
-            android:textColor="@color/black"
+            android:orientation="vertical"
+            android:padding="@dimen/_3sdp"
+            android:weightSum="2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivStore"
-            app:layout_constraintTop_toBottomOf="@+id/tvNameStore" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivStore"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvNameStore"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppinsregular"
+                android:text="ABC Storasdutasuydfsahjdfsahjgsafdghsafdgassahgdfghasfashgdfghase"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/ivStore"
+                app:layout_constraintTop_toBottomOf="@+id/tvState"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvState"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppinsregular"
+                android:text="State: Open"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivStore"
+                app:layout_constraintTop_toBottomOf="@+id/tvNameStore" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivDown"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:src="@drawable/ic_down_arrow"
+            app:layout_constraintBottom_toBottomOf="@id/llName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/llName"
+            app:tint="#51565A" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:visibility="visible" />
+</LinearLayout>

@@ -39,13 +39,12 @@ class ListRestaurantFragment : BaseFragment() {
     private fun registerObserver() {
         viewModel.getDataRemote()
         viewModel.restaurantTimeMutableLiveData.observe(this) { res ->
-            Log.d("Fragment", AppUtils.convertTime(res.timestamp))
             adapter.updateData(res.restaurants.toArrayList())
+            adapter.updateCurrentTime(res.timestamp)
         }
         viewModel.loadingData.observe(requireActivity()) {
             progressBar(it)
         }
-
     }
 
     private fun initRecyclerView() {
